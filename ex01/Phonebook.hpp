@@ -3,14 +3,19 @@
 
 #include <iostream>
 #include "Contact.hpp"
-class phonebook
+#include <iomanip>
+#include <cstring>
+
+class PhoneBook
 {
 private:
     Contact contacts[8];
     int contact_count;
 public:
-    phonebook();
-    ~phonebook();
+    PhoneBook();
+    ~PhoneBook();
+    void add_contact();
+    void print_table();
 };
 
 #endif

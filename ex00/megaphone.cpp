@@ -4,7 +4,7 @@
 
 void    capitalize_arg(char *av)
 {
-    for(int i = 0; i < std::strlen(av); i++)
+    for(size_t i = 0; i < std::strlen(av); i++)
         av[i] = std::toupper(av[i]);
 
 }
