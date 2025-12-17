@@ -6,7 +6,6 @@ void    capitalize_arg(char *av)
 {
     for(size_t i = 0; i < std::strlen(av); i++)
         av[i] = std::toupper(av[i]);
-
 }
 
 int main(int ac, char **av)

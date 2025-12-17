@@ -7,7 +7,8 @@ int main(void)
     std::string command;
     while(1)
     {
-        std::cout << "Enter a command: " << std::endl;
+        std::cout << "Commands Allowed are: ADD, SEARCH, EXIT" << std::endl;
+        std::cout << "Enter command: " << std::endl;
         std::cin >> command;
         if (!command.std::string::compare("ADD"))
         {
@@ -22,11 +23,9 @@ int main(void)
         }
         else if (!command.std::string::compare("EXIT"))
         {
-            // ~pb.~PhoneBook();
             std::cout << "Exiting to the Phone book" << std::endl;
             break;
-            // exit(0);
         }
+        std::cout << std::endl;
     }
-
 }
