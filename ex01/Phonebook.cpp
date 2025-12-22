@@ -1,6 +1,23 @@
 #include "Phonebook.hpp"
 #include <cctype>
 #include <iomanip>
+int check(std::string str, char check)
+{
+    for (size_t i = 0; i < str.length(); i++)
+    {
+        if (check == 0 && (!std::isdigit(str[i]) && !std::isspace(str[i])))
+        {
+            std::cout << "Invalid. Field must contain digits only" << std::endl;
+            return (0);
+        }
+        else if (check == 1 && (!std::isalpha(str[i]) && !std::isspace(str[i])))
+        {
+            std::cout << "Invalid. Field must contain letters only." << std::endl;
+            return (0);
+        }
+    }
+    return (1);
+}
 void PhoneBook::add_contact()
 {
     std::string firstname = "";
@@ -14,12 +31,15 @@ void PhoneBook::add_contact()
     {
         std::cout << "Enter First Name: ";
         std::getline(std::cin, firstname);
+        if (!check(firstname, 1))
+            return ;
     }
     while(lastname.length() == 0)
     {
         std::cout << "Enter Last Name: ";
         std::getline(std::cin, lastname);
-
+        if (!check(lastname, 1))
+            return ;
     }
     while(nickname.length() == 0)
     {
@@ -30,6 +50,8 @@ void PhoneBook::add_contact()
     {
         std::cout << "Enter Phone Number: ";
         std::getline(std::cin, number);
+        if (!check(number, 0))
+            return ;
     }
     while(secret.length() == 0)
     {
@@ -45,14 +67,14 @@ void PhoneBook::add_contact()
 
 PhoneBook::PhoneBook()
 {
-    // std::cout << "phone book Default Constructor called" << std::endl;
+    std::cout << "PhoneBook Default Constructor called" << std::endl;
     contact_count = 0;
     total_contacts = 0;
 }
 
 PhoneBook::~PhoneBook()
 {
-    // std::cout << "phone book Destructor called" << std::endl;
+    std::cout << "PhoneBook Destructor called" << std::endl;
 }
 
 void PhoneBook::print_table()
@@ -62,6 +84,7 @@ void PhoneBook::print_table()
     std::string lastname = "Last Name";
     std::string nickname = "Nickname";
     int index_entry;
+    std::string number;
     std::cout << std::right
     << std::setw(10) << index << "|"
     << std::setw(10) << firstname << "|"
@@ -87,9 +110,12 @@ void PhoneBook::print_table()
     }
 
     std::cout << "Enter contact index: ";
-    std::cin >> index_entry;
+    std::getline(std::cin, number);
+    if (!check(number, 0))
+        return ;
+    index_entry = std::atoi(number.c_str());
     if (index_entry < 0 || index_entry > 7 || index_entry >= contact_count)
-        std::cout << "No valid contact for that index." << std::endl;
+        std::cout << "Invalid index." << std::endl;
     else
         contacts[index_entry].print_contact_info();
 }

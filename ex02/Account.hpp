@@ -23,34 +23,34 @@ public:
 
 	typedef Account		t;
 
-	static int	getNbAccounts( void ); //done
-	static int	getTotalAmount( void ); //done
-	static int	getNbDeposits( void ); //done
-	static int	getNbWithdrawals( void ); //done
-	static void	displayAccountsInfos( void ); //done
+	static int	getNbAccounts( void );
+	static int	getTotalAmount( void );
+	static int	getNbDeposits( void );
+	static int	getNbWithdrawals( void );
+	static void	displayAccountsInfos( void );
 
-	Account( int initial_deposit ); //done
-	~Account( void ); //done
+	Account( int initial_deposit );
+	~Account( void );
 
-	void	makeDeposit( int deposit ); //done
-	bool	makeWithdrawal( int withdrawal ); //done
-	int		checkAmount( void ) const; //done
-	void	displayStatus( void ) const; //done
+	void	makeDeposit( int deposit );
+	bool	makeWithdrawal( int withdrawal );
+	int		checkAmount( void ) const;
+	void	displayStatus( void ) const;
 
 
 private:
 
-	static int	_nbAccounts; //counts how many Accounts object currently exists
-	static int	_totalAmount; //sum of all the accounts amount value
-	static int	_totalNbDeposits; //total number of deposits across all accounts
-	static int	_totalNbWithdrawals; //total number of withdrawal across all accounts
+	static int	_nbAccounts;
+	static int	_totalAmount;
+	static int	_totalNbDeposits;
+	static int	_totalNbWithdrawals;
 
-	static void	_displayTimestamp( void ); //done
+	static void	_displayTimestamp( void );
 
-	int				_accountIndex; //unique account ID
-	int				_amount; //balance of the account
-	int				_nbDeposits; //number of depsits made on an account
-	int				_nbWithdrawals; //number of withdrawals made on an account
+	int				_accountIndex;
+	int				_amount;
+	int				_nbDeposits;
+	int				_nbWithdrawals;
 
 	Account( void );
 

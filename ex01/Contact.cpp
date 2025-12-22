@@ -2,7 +2,7 @@
 
 Contact::Contact()
 {
-    // std::cout << "contact Default Constructor called" << std::endl;
+    std::cout << "Contact Default Constructor called" << std::endl;
     first_name = "Unknown";
     last_name = "Unknown";
     nickname = "Unknown";
@@ -12,6 +12,7 @@ Contact::Contact()
 
 Contact::Contact(std::string f_name, std::string l_name, std::string nick_name, std::string number, std::string secret)
 {
+    std::cout << "Contact assign Constructor called" << std::endl;
     first_name = f_name;
     last_name = l_name;
     nickname = nick_name;
@@ -19,9 +20,11 @@ Contact::Contact(std::string f_name, std::string l_name, std::string nick_name, 
     darkest_secret = secret;
 }
 
+
+
 Contact::~Contact()
 {
-    // std::cout << "contact Destructor called" << std::endl;
+    std::cout << "Contact Destructor called" << std::endl;
 }
 
 void    Contact::set_first_name(std::string name)

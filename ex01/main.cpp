@@ -9,18 +9,11 @@ int main(void)
     {
         std::cout << "Commands Allowed are: ADD, SEARCH, EXIT" << std::endl;
         std::cout << "Enter command: " << std::endl;
-        std::cin >> command;
+        std::getline(std::cin, command);
         if (!command.std::string::compare("ADD"))
-        {
-            std::cout << "Adding to the Phone book" << std::endl;
             pb.add_contact();
-
-        }
         else if (!command.std::string::compare("SEARCH"))
-        {
-            std::cout << "Searching the Phone book" << std::endl;
             pb.print_table();
-        }
         else if (!command.std::string::compare("EXIT"))
         {
             std::cout << "Exiting to the Phone book" << std::endl;
