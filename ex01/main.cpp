@@ -10,11 +10,11 @@ int main(void)
         std::cout << "Commands Allowed are: ADD, SEARCH, EXIT" << std::endl;
         std::cout << "Enter command: " << std::endl;
         std::getline(std::cin, command);
-        if (!command.std::string::compare("ADD"))
+        if (!command.compare("ADD"))
             pb.add_contact();
-        else if (!command.std::string::compare("SEARCH"))
+        else if (!command.compare("SEARCH"))
             pb.print_table();
-        else if (!command.std::string::compare("EXIT"))
+        else if (!command.compare("EXIT"))
         {
             std::cout << "Exiting to the Phone book" << std::endl;
             break;

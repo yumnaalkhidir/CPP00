@@ -1,6 +1,7 @@
 #include "Phonebook.hpp"
 #include <cctype>
 #include <iomanip>
+#include <cstdlib>
 int check(std::string str, char check)
 {
     for (size_t i = 0; i < str.length(); i++)
