@@ -101,7 +101,6 @@ bool	Account::makeWithdrawal( int withdrawal )
 
 int		Account::checkAmount( void ) const
 {
-    std::cout << "HELLO" << std::endl;
     return (_amount);
 }
 
@@ -116,11 +115,11 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-    std::time_t now;
-    std::tm *t;
+    time_t now;
+    tm *t;
 
-    now = std::time(NULL);
-    t = std::localtime(&now);
+    now = time(NULL);
+    t = localtime(&now);
     std::cout << "[" << t->tm_year + 1900 
     << std::setw(2) << std::setfill('0') << t->tm_mon + 1
     << std::setw(2) << std::setfill('0') << t->tm_mday << "_"

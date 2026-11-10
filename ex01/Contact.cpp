@@ -12,15 +12,13 @@ Contact::Contact()
 
 Contact::Contact(std::string f_name, std::string l_name, std::string nick_name, std::string number, std::string secret)
 {
-    std::cout << "Contact assign Constructor called" << std::endl;
+    std::cout << "Contact Constructor called" << std::endl;
     first_name = f_name;
     last_name = l_name;
     nickname = nick_name;
     phone_number = number;
     darkest_secret = secret;
 }
-
-
 
 Contact::~Contact()
 {

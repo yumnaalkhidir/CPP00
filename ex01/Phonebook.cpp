@@ -1,7 +1,19 @@
 #include "Phonebook.hpp"
 #include <cctype>
 #include <iomanip>
-#include <cstdlib>
+
+PhoneBook::PhoneBook()
+{
+    std::cout << "PhoneBook Default Constructor called" << std::endl;
+    contact_count = 0;
+    total_contacts = 0;
+}
+
+PhoneBook::~PhoneBook()
+{
+    std::cout << "PhoneBook Destructor called" << std::endl;
+}
+
 int check(std::string str, char check)
 {
     for (size_t i = 0; i < str.length(); i++)
@@ -19,6 +31,7 @@ int check(std::string str, char check)
     }
     return (1);
 }
+
 void PhoneBook::add_contact()
 {
     std::string firstname = "";
@@ -32,50 +45,42 @@ void PhoneBook::add_contact()
     {
         std::cout << "Enter First Name: ";
         std::getline(std::cin, firstname);
-        if (!check(firstname, 1))
+        if (firstname.empty() || !check(firstname, 1))
             return ;
     }
     while(lastname.length() == 0)
     {
         std::cout << "Enter Last Name: ";
         std::getline(std::cin, lastname);
-        if (!check(lastname, 1))
+        if (lastname.empty() || !check(lastname, 1))
             return ;
     }
     while(nickname.length() == 0)
     {
         std::cout << "Enter Nickname: ";
         std::getline(std::cin, nickname);
+        if (nickname.empty())
+            return ;
     }
     while(number.length() == 0)
     {
         std::cout << "Enter Phone Number: ";
         std::getline(std::cin, number);
-        if (!check(number, 0))
+        if (number.empty() || !check(number, 0))
             return ;
     }
     while(secret.length() == 0)
     {
         std::cout << "Enter Dark Secret: ";
         std::getline(std::cin, secret);
+        if (secret.empty())
+            return ;
     }
     index = total_contacts % 8;
     contacts[index] = Contact(firstname, lastname, nickname, number, secret);
     if (contact_count < 8)
         contact_count++;
     total_contacts++;
-}
-
-PhoneBook::PhoneBook()
-{
-    std::cout << "PhoneBook Default Constructor called" << std::endl;
-    contact_count = 0;
-    total_contacts = 0;
-}
-
-PhoneBook::~PhoneBook()
-{
-    std::cout << "PhoneBook Destructor called" << std::endl;
 }
 
 void PhoneBook::print_table()
@@ -114,7 +119,7 @@ void PhoneBook::print_table()
     std::getline(std::cin, number);
     if (!check(number, 0))
         return ;
-    index_entry = std::atoi(number.c_str());
+    index_entry = atoi(number.c_str());
     if (index_entry < 0 || index_entry > 7 || index_entry >= contact_count)
         std::cout << "Invalid index." << std::endl;
     else

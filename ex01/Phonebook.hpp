@@ -5,6 +5,7 @@
 #include "Contact.hpp"
 #include <iomanip>
 #include <cstring>
+#include <cstdlib>
 
 class PhoneBook
 {
